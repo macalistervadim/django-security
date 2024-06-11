@@ -1,0 +1,38 @@
+name: CI
+
+on:
+  push:
+    branches: 
+        - production
+        - development
+        - hotfixes
+  pull_request:
+    branches: 
+        - production
+        - development
+        - hotfixes
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install poetry
+        poetry install
+
+    - name: Lint with flake8
+      run: poetry run flake8
+
+    - name: Format code with black
+      run: poetry run black --check .
