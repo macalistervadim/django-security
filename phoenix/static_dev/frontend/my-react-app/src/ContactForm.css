@@ -1,0 +1,77 @@
+/* ContactForm.css */
+
+.form-container {
+    max-width: 300px;
+    margin: 0 auto;
+    float: left;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-control {
+    border-radius: 10px;
+    border: 1px solid #ced4da;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.checkbox-label {
+    margin-left: 5px;
+}
+
+.submit-btn {
+    width: 100%;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+    background-color: purple;
+    border: none;
+}
+
+.submit-btn:hover {
+    background-color: darkviolet;
+}
+
+.collapse-container {
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+}
+
+.collapse-container:not(.show) {
+    max-height: 0;
+}
+
+.collapsed {
+    display: none;
+}
+
+.expanded {
+    display: block;
+}
+
+.contact-btn {
+    margin-bottom: 20px;
+    background-color: purple;
+    border: none;
+}
+
+.contact-btn:hover {
+    background-color: darkviolet;
+}
+
+/* Переопределение стилей для кнопок Bootstrap */
+.btn-primary {
+    background-color: purple !important;
+    border-color: purple !important;
+}
+
+.btn-primary:hover {
+    background-color: darkviolet !important;
+    border-color: darkviolet !important;
+}

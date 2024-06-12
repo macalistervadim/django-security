@@ -1,0 +1,13 @@
+.footer-container {
+    background-color: #f8f9fa;
+    padding: 30px 0;
+    margin-top: 50px;
+  }
+  
+  .footer-container h5 {
+    color: #343a40;
+  }
+  
+  .footer-container p {
+    color: #6c757d;
+  }

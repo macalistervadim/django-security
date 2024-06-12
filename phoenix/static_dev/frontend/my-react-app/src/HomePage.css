@@ -1,0 +1,33 @@
+/* Пользовательские стили для HomePage */
+
+/* Стили для разделов */
+.section {
+    padding: 50px 0;
+  }
+  
+  /* Стили для заголовка */
+  .title {
+    font-size: 3rem;
+    font-weight: bold;
+  }
+  
+  .subtitle {
+    font-size: 1.5rem;
+    color: #666;
+  }
+  
+  /* Стили для раздела "About Us" */
+  .about-title {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  .about-description {
+  }
+  
+  /* Стили для контактной формы */
+  .contact-title {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  

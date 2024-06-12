@@ -1,0 +1,23 @@
+.navbar-container {
+    padding-top: 20px;
+  }
+  
+  .brand-text {
+    font-size: 24px;
+  }
+  
+  .nav-link:hover {
+    color: #007bff !important; /* Синий цвет при наведении */
+  }
+
+
+
+  
+/* Фиксированная позиция шапки */
+.header-fixed {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Чтобы шапка была поверх других элементов */
+    transition: top 0.3s; /* Эффект плавного перехода */
+}

@@ -1,0 +1,2 @@
+.task-enter{opacity:0;transform:translateY(-20px)}.task-enter-active{transition:opacity .5s,transform .5s}.task-enter-active,.task-exit{opacity:1;transform:translateY(0)}.task-exit-active{opacity:0;transform:translateY(-20px);transition:opacity .5s,transform .5s}
+/*# sourceMappingURL=main.7c10b21a.css.map*/
