@@ -110,7 +110,8 @@ USE_L10N = True
 USE_TZ = True
 
 STATIC_URL = "static/"
-STATICFILES_DIRS = [BASE_DIR / "static_dev"]
+REACT_BUILD_DIR = [BASE_DIR / 'static_dev/phoenix-studio/build']
+STATICFILES_DIRS = REACT_BUILD_DIR
 STATIC_ROOT = BASE_DIR / "static"
 
 MEDIA_ROOT = BASE_DIR / "media"

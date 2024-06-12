@@ -5,6 +5,8 @@ import django.urls
 
 urlpatterns = [
     django.urls.path("admin/", django.contrib.admin.site.urls),
+
+    django.urls.path("", django.urls.include("homepage.urls")),
 ]
 
 if django.conf.settings.DEBUG:
@@ -12,7 +14,6 @@ if django.conf.settings.DEBUG:
     import django.conf.urls.static
 
     STATIC_ROOT = django.conf.urls.static.static
-
     urlpatterns += (
         [
             django.urls.path(
