@@ -1,6 +1,6 @@
 [flake8]
-application_import_names = homepage
+application_import_names = api, homepage, user
 inline-quotes = double
-exclude = .git, __pycache__, venv, frontend
+exclude = .git, __pycache__, venv, frontend, migrations
 import-order-style = google
 max-line-length = 120
