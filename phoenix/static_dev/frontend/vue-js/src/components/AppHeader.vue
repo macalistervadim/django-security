@@ -2,7 +2,7 @@
   <b-container class="header-container">
     <div class="content-container">
       <div class="header-top">
-        <!-- Логотип и текст -->
+
         <div class="logo-container">
           <img src="@/assets/img/logo/logo.png" alt="Логотип PHOENIX STUDIO" class="logo">
           <div class="studio-info">
@@ -10,14 +10,12 @@
           </div>
         </div>
 
-        <!-- Кнопки "Вход" и "Регистрация" -->
         <div class="button-container">
           <b-button variant="outline-primary" class="btn-login"><i class="bi bi-box-arrow-in-right"></i>Вход</b-button>
           <b-button class="btn-register">Регистрация</b-button>
         </div>
       </div>
 
-      <!-- Навигационное меню -->
       <hr class="nav-divider">
       <div class="nav-language-container">
         <b-nav class="nav-items" pills>
@@ -55,20 +53,25 @@
       </b-nav>
       </div>
 
-      <h1 class="h1-header">PHOENIX STUDIO - Разжигаем огонь<br>технологий вместе</h1>
-      <h3 class="h3-header">Качественный запуск продукта по низкой цене</h3>
-
-      <b-button class="btn-more" variant="outline-primary">
-        <i class="bi bi-arrow-down"></i> Подробнее
-      </b-button>
+      <div class="header-main-content">
+        <div class="text-container">
+          <h1 class="h1-header">PHOENIX STUDIO - Разжигаем огонь<br>технологий вместе</h1>
+          <h3 class="h3-header">Качественный запуск продукта по низкой цене</h3>
+          <b-button class="btn-more" variant="outline-primary">
+            <i class="bi bi-arrow-down"></i> Подробнее
+          </b-button>
+        </div>
+        <img src="@/assets/img/header/landingpage.png" alt="header-img" class="header-img">
+      </div>
     </div>
   </b-container>
 </template>
 
+
 <script>
 
-import { BButton } from 'bootstrap-vue-3'; // Импортируем BButton из bootstrap-vue-3
-import 'bootstrap-icons/font/bootstrap-icons.css'; // Импортируем стили иконок Bootstrap
+import { BButton } from 'bootstrap-vue-3';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 export default {
   components: {
@@ -89,7 +92,7 @@ export default {
   color: #fff;
   display: flex;
   justify-content: center;
-  align-items: flex-start; /* Выровнять содержимое по верхнему краю */
+  align-items: flex-start;
   padding: 20px;
   margin: 0 auto;
   margin-top: 0.5%;
@@ -99,7 +102,19 @@ export default {
   margin-right: 10px;
 }
 
+.header-main-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 
+}
+
+.header-img {
+  width: 300px;
+  margin-right: 70px;
+
+}
 
 .content-container {
   width: 70%;
@@ -127,7 +142,6 @@ export default {
 
 .h1-header {
   text-align: left;
-  margin-top: 60px;
 }
 
 .h3-header {
@@ -139,17 +153,19 @@ export default {
 
 .btn-more {
   background-color: transparent !important;
-  border: 2px solid #00DFAA !important;
+  border: 2px solid #16b2f9 !important;
   color: #fff !important;
   border-radius: 12px;
   padding: 10px 30px;
   margin-top: 30px;
+  font-weight: 500;
 }
 
 .btn-more:hover {
   background-color: #ffffff !important;
   border-color: #ffffff !important;
   color: #000000 !important;
+  font-weight: 500;
 }
 
 .studio-info {
@@ -176,23 +192,26 @@ export default {
 
 .btn-login {
   background-color: transparent !important;
-  border: 2px solid #00DFAA !important;
+  border: 2px solid #16b2f9 !important;
   color: #fff !important;
   border-radius: 12px;
   padding: 10px 20px;
+  font-weight: 500;
 }
 
 .btn-login:hover {
-  background-color: #00DFAA !important;
-  border-color: #00DFAA !important;
+  background-color: #16b2f9 !important;
+  border-color: #16b2f9 !important;
   color: #fff !important;
+
 }
 
 .btn-register {
-  background-color: #00DFAA !important;
-  border: 2px solid #00DFAA !important;
+  background-color: #16b2f9!important;
+  border: 2px solid #16b2f9!important;
   color: #fff !important;
   border-radius: 12px;
+  font-weight: 500;
   padding: 10px 20px;
 }
 
@@ -212,7 +231,6 @@ export default {
   border-radius: 12px !important;
   margin-top: 10px;
 }
-
 
 .nav-language-container {
   width: 100%;
@@ -252,3 +270,6 @@ export default {
   margin-bottom: 10px;
 }
 </style>
+
+
+
