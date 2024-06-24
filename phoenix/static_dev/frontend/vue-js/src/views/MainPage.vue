@@ -1,5 +1,6 @@
 <template>
     <AppHeader />
+    <BlockAchievements />
     <AppFooter />
 </template>
 
@@ -7,12 +8,14 @@
 
 import AppFooter from '@/components/AppFooter.vue';
 import AppHeader from '@/components/AppHeader';
+import BlockAchievements from '@/components/BlockAchievements'
 
 export default {
 name: 'MainPage',
 components: {
     AppHeader,
-    AppFooter
+    BlockAchievements,
+    AppFooter,
 }
 };
 </script>

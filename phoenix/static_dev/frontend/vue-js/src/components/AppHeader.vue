@@ -142,6 +142,7 @@ export default {
 
 .h1-header {
   text-align: left;
+  font-weight: 700;
 }
 
 .h3-header {
@@ -249,7 +250,7 @@ export default {
   font-family: 'Roboto', sans-serif;
   font-size: 17px;
   font-style: normal;
-  font-weight: 300;
+  font-weight: 400;
   line-height: normal;
   transition: background-color 0.3s ease;
   margin-right: 20px;

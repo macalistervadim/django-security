@@ -16,3 +16,4 @@ class ProfileSerializer(rest_framework.serializers.ModelSerializer):
     class Meta:
         model = user.models.Profile
         fields = ["user", "birthday"]
+
