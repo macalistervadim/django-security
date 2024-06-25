@@ -5,9 +5,6 @@
 </template>
 
 <script>
-
-
-
 export default {
   name: 'App',
   components: {
@@ -18,7 +15,4 @@ export default {
 
 <style>
 @import './assets/styles/main.css';
-
-
-
 </style>

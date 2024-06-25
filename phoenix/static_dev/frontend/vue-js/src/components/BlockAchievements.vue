@@ -3,7 +3,7 @@
       <b-row>
         <b-col cols="6">
           <div class="text-header">
-            <h1>Почему стоит выбрать именно нас?</h1>
+            <h1 class="h1">Почему стоит выбрать именно нас?</h1>
             <h3 class="h3">Наши преимущества перед конкурентами</h3>
           </div>
           <div class="text-container">
@@ -39,7 +39,6 @@
           { title: 'Использование современных технологий', description: 'Мы всегда на шаг впереди в применении последних технологических достижений. Это позволяет нам создавать современные, инновационные и высокоэффективные веб-решения для наших клиентов.' },
           { title: 'Полный цикл услуг от идеи до поддержки', description: 'Мы предоставляем полный цикл услуг, начиная от консультаций и разработки концепции проекта, до долгосрочной поддержки и обслуживания после запуска. Мы сопровождаем наших клиентов на каждом этапе их онлайн-присутствия.' }
         ],
-        cardDisabled: false
       };
     }
   };
@@ -60,6 +59,10 @@
     opacity: 0.6;
   }
   
+  .h1 {
+    font-weight: 700;
+  }
+
   .card-col {
     margin-top: 50px;
   }
@@ -78,14 +81,15 @@
   .card-outer {
     background-color: #ffffff;
     border-radius: 8px;
-    padding: 7px; /* убираем padding */
+    padding: 7px;
     margin-bottom: 10px;
-    transition: border 0.3s ease; /* добавляем transition для плавного изменения border */
-    border: 1px solid transparent; /* изначально обводка прозрачная */
+    transition: border 0.3s ease;
+    border: 1px solid transparent;
   }
   
   .card-outer:hover {
-    border-color: #16b2f9; /* добавляем обводку при наведении */
+    border-color: #16b2f9;
+    cursor: default;
   }
   
   .card-inner {
@@ -105,11 +109,6 @@
     line-height: 1.6;
     font-weight: 500;
     margin: 0;
-  }
-  
-  .card-disabled {
-    opacity: 0.5; /* делаем карточку неактивной */
-    pointer-events: none; /* отключаем события мыши для неактивной карточки */
   }
   </style>
   
