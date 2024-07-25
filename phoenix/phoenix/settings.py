@@ -7,18 +7,26 @@ import dotenv
 
 dotenv.load_dotenv()
 
+
+def load_bool(name, default):
+    value = os.getenv(name, str(default)).lower()
+    return value in ("", "true", "True", "t", "y", "yes", "YES", "1")
+
+
+def load_list(name, default):
+    return os.getenv(name, str(default)).split(",")
+
+
 BASE_DIR = pathlib.Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", default="key")
 
-DEBUG = os.getenv("DJANGO_DEBUG", default="False")
+DEBUG = load_bool("DJANGO_DEBUG", default="False")
 
-ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", default="*").split(",")
+ALLOWED_HOSTS = load_list("DJANGO_ALLOWED_HOSTS", default="*")
 
 INSTALLED_APPS = [
-    "api.apps.ApiConfig",
     "homepage.apps.HomepageConfig",
-    "user.apps.UserConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -71,12 +79,8 @@ WSGI_APPLICATION = "phoenix.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": os.getenv("DB_ENGINE", default="django.db.backends.sqlite3"),
-        "NAME": os.getenv("POSTGRES_DB", default="default_db_name"),
-        "USER": os.getenv("POSTGRES_USER", default="default_db_user"),
-        "PASSWORD": os.getenv("POSTGRES_PASSWORD", default="default_db_password"),
-        "HOST": os.getenv("POSTGRES_HOST", default="localhost"),
-        "PORT": os.getenv("POSTGRES_PORT", default="5432"),
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
     },
 }
 
@@ -125,7 +129,3 @@ MEDIA_URL = "/media/"
 STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-
-CORS_ALLOWED_ORIGINS = os.getenv("CORS_ALLOWED_ORIGINS", default="no_address").split(
-    ",",
-)

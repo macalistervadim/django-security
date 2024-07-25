@@ -1,11 +1,10 @@
 import django.conf
-import django.contrib
+import django.contrib.admin
 import django.urls
 
 
 urlpatterns = [
     django.urls.path("admin/", django.contrib.admin.site.urls),
-    django.urls.path("api/", django.urls.include("api.urls")),
 ]
 
 if django.conf.settings.DEBUG:
