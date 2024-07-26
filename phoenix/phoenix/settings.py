@@ -8,12 +8,12 @@ import dotenv
 dotenv.load_dotenv()
 
 
-def load_bool(name, default):
-    value = os.getenv(name, str(default)).lower()
+def loadBoolEnv(name: str, default: str) -> bool:
+    value: str = os.getenv(name, str(default)).lower()
     return value in ("", "true", "True", "t", "y", "yes", "YES", "1")
 
 
-def load_list(name, default):
+def loadListEnv(name: str, default: str) -> list[str]:
     return os.getenv(name, str(default)).split(",")
 
 
@@ -21,9 +21,9 @@ BASE_DIR = pathlib.Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", default="key")
 
-DEBUG = load_bool("DJANGO_DEBUG", default="False")
+DEBUG = loadBoolEnv("DJANGO_DEBUG", default="False")
 
-ALLOWED_HOSTS = load_list("DJANGO_ALLOWED_HOSTS", default="*")
+ALLOWED_HOSTS = loadListEnv("DJANGO_ALLOWED_HOSTS", default="*")
 
 INSTALLED_APPS = [
     "homepage.apps.HomepageConfig",
@@ -58,7 +58,6 @@ if DEBUG:
     INTERNAL_IPS = ["127.0.0.1", "localhost"]
 
 TEMPLATES_DIRS = BASE_DIR / "templates"
-
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
@@ -79,8 +78,12 @@ WSGI_APPLICATION = "phoenix.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": os.getenv("DB_ENGINE", default="django.db.backends.sqlite3"),
+        "NAME": os.getenv("POSTGRES_DB", default="default_db_name"),
+        "USER": os.getenv("POSTGRES_USER", default="default_db_user"),
+        "PASSWORD": os.getenv("POSTGRES_PASSWORD", default="default_db_password"),
+        "HOST": os.getenv("POSTGRES_HOST", default="localhost"),
+        "PORT": os.getenv("POSTGRES_PORT", default="5432"),
     },
 }
 
@@ -100,32 +103,38 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 LANGUAGE_CODE = "ru"
-
 LANGUAGES = [
     ("en", django.utils.translation.gettext_lazy("English")),
     ("ru", django.utils.translation.gettext_lazy("Russian")),
 ]
-
 LOCALE_PATHS = [
     BASE_DIR / "locale",
 ]
-
 TIME_ZONE = "UTC"
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
 
 STATIC_URL = "static/"
-REACT_BUILD_DIR = [BASE_DIR / "static_dev"]
-STATICFILES_DIRS = REACT_BUILD_DIR
+STATICFILES_DIRS = [BASE_DIR / "static_dev"]
 STATIC_ROOT = BASE_DIR / "static"
 
 MEDIA_ROOT = BASE_DIR / "media"
 MEDIA_URL = "/media/"
 
-STATIC_URL = "static/"
-
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+SECURE_HSTS_SECONDS = 1000
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_SSL_REDIRECT = True
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+
+EMAIL_BACKEND = os.getenv("DJANGO_EMAIL_BACKEND")
+EMAIL_HOST = os.getenv("DJANGO_EMAIL_HOST")
+EMAIL_PORT = int(os.getenv("DJANGO_EMAIL_PORT"))
+EMAIL_USE_SSL = loadBoolEnv("DJANGO_EMAIL_USE_SSL", default="False")
+EMAIL_HOST_USER = os.getenv("DJANGO_EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = os.getenv("DJANGO_EMAIL_HOST_PASSWORD")
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+SERVER_EMAIL = EMAIL_HOST_USER
+EMAIL_ADMIN = EMAIL_HOST_USER

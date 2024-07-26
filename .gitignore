@@ -280,3 +280,6 @@ Thumbs.db
 .vscode/
 .idea/
 
+# Certificate
+certificate.pem
+private_key.pem
